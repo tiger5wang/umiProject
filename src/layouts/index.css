@@ -13,3 +13,32 @@
   color: white;
   margin: 0;
 }
+
+.header {
+  color: white;
+}
+
+.content {
+  margin: 16px;
+}
+
+.content_box {
+  padding: 24px;
+  background: #fff;
+  min-height: 500px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.logo {
+  float: left;
+  width: 80px;
+  margin: 10px 16px 0 0;
+}
+
+.menu {
+  line-height: 64px;
+  float: left;
+}
