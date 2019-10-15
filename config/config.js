@@ -26,13 +26,14 @@ export default {
     }],
   ],
   routes: [
-    { path: "/login", component: './Login'},
+    { path: "/login", component: './login/index'},
     {
       path: "/",
       component: '../layouts',
       routes: [
         { path: "/", component: "./goods/index"},
-
+        { path: "/user", component: "./user/index"},
+        { path: "/login", component: './login/index'}
       ]
     }
   ]

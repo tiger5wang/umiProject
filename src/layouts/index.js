@@ -1,4 +1,5 @@
 import { Layout, Menu } from 'antd'
+import Link from 'umi/link';
 import styles from './index.css';
 
 const { Header, Content, Footer } = Layout;
@@ -18,11 +19,15 @@ function BasicLayout(props) {
           className={styles.menu}
           theme='dark'
           mode='horizontal'
-          defaultSelectedKeys={['goods']}
+          defaultSelectedKeys={['/']}
         >
-          <Item key='goods'>商品</Item>
-          <Item key='users'>用户</Item>
-          <Item key='about'>关于</Item>
+          <Item key='/'>商品</Item>
+          <Item key='/user'>
+            <Link to='/user'>我的</Link>
+          </Item>
+          <Item key='/login'>
+            <Link to='/login'>登陆注册</Link>
+          </Item>
         </Menu>
       </Header>
       {/*内容*/}
