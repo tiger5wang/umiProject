@@ -37,11 +37,11 @@ export default {
       path: '/',
       component: '../layouts',
       routes: [
+        { path: '/', component: './goods/index'},
         {
           path: '/goods',
           component: './goods/_layout',
           routes: [
-            { path: '/goods', component: './goods/index'},
             {
               path: '/goods/:Course',
               component: './goods/$Course',
@@ -59,11 +59,13 @@ export default {
         {
           path: '/user',
           component: './user/index',
+          Routes: ["./routes/PrivateRoute.js"]
         },
         {
           path: '/login',
           component: './login/index',
         },
+        {component: './404'}
       ],
     },
   ],

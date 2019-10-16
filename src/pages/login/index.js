@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
 import { Login } from 'ant-design-pro';
+import {connect} from 'dva'
 
 import styles from './index.css'
 
 const { UserName, Password, Submit } = Login;
 
-export default class LoginPage extends Component {
+@connect()
+class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {}
+  }
+
+  onSubmit = (err, value) => {
+    // console.log(err, value)
+    if(!err) {
+      this.props.dispatch({
+        type: 'user/login',
+        payload: value
+      })
+    }
   }
 
   render() {
     return(
       <div className={styles.loginForm}>
         <img className={styles.logo} src="https://zos.alipayobjects.com/rmsportal/DuZnPddOZJNoNRH.png" alt=""/>
-        <Login>
+        <Login onSubmit={this.onSubmit}>
           <UserName
             name='username'
             placeholder='请输入用户名'
@@ -32,3 +44,5 @@ export default class LoginPage extends Component {
     )
   }
 }
+
+export default LoginPage
