@@ -7,6 +7,13 @@ const { Item } = Menu;
 
 
 function BasicLayout(props) {
+  console.log(props)
+  const paths = [
+    {path: '/goods'},
+    {path: '/user'},
+    {path: '/login'}
+  ];
+  const selectedPath = paths.filter(item => props.location.pathname.startsWith(item.path)).map(item => item.path);
   return (
     <Layout className={styles.normal}>
       {/*<h1 className={styles.title}>Yay! Welcome to umi!</h1>*/}
@@ -19,9 +26,12 @@ function BasicLayout(props) {
           className={styles.menu}
           theme='dark'
           mode='horizontal'
-          defaultSelectedKeys={['/']}
+          selectedKeys={selectedPath}
+          defaultSelectedKeys={['/goods']}
         >
-          <Item key='/'>商品</Item>
+          <Item key='/goods'>
+            <Link to='/goods'>商品</Link>
+          </Item>
           <Item key='/user'>
             <Link to='/user'>我的</Link>
           </Item>
